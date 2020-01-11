@@ -75,7 +75,8 @@ key chapters from books like
 
 ### 2.2 Feature Correspondences
 
-![alt text](https://github.com/BigSorry/Blogs/blob/master/images/features.png)
+![alt text](https://github.com/BigSorry/Blogs/blob/master/images/features.png) 
+figure 1: Output SLAM
 
 When talking about images correspondences
 for the SLAM setting, Its often best to keep
