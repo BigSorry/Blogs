@@ -245,21 +245,21 @@ all the transformations are doing. We have the following dimensions:
 - N 3D local camera spaces for N cameras
 - N 2D local camera spaces for N cameras.
 
-Each camera has a transformation matrixTGk(often called extrinsic matrix) which transforms
+Each camera has a transformation matrix <a href="https://www.codecogs.com/eqnedit.php?latex=$T_G^k$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$T_G^k$" title="$T_G^k$" /></a> (often called extrinsic matrix) which transforms
 coordinates from the world space to it’s local camera space.
-Each camera has a projection functionπ(which is determined by the intrinsic matrix) which
+Each camera has a projection function <a href="https://www.codecogs.com/eqnedit.php?latex=$\pi$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$\pi$" title="$\pi$" /></a> (which is determined by the intrinsic matrix) which
 transforms coordinates from the 3D local camera space to it’s 2D local camera space (depth
 image).
-Each camera has also an unprojection functionπ−^1 (also based on the intrinsic matrix) which
+Each camera has also an unprojection function <a href="https://www.codecogs.com/eqnedit.php?latex=$\pi^{-1}$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$\pi^{-1}$" title="$\pi^{-1}$" /></a> (also based on the intrinsic matrix) which
 transforms coordinates from the 2D local camera space to the 3D local camera space.
 
-This is a difference vector in 3D space (πD,k−^1 (πD,kk (TGkps))−TGkps). Where the 3D center point
+This is a difference vector in 3D space <a href="https://www.codecogs.com/eqnedit.php?latex=$(\pi^{-1}_{D,k}(\pi_{D,k}^{k}(T_G^{k}p_s))-&space;T_G^{k}p_s)$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$(\pi^{-1}_{D,k}(\pi_{D,k}^{k}(T_G^{k}p_s))-&space;T_G^{k}p_s)$" title="$(\pi^{-1}_{D,k}(\pi_{D,k}^{k}(T_G^{k}p_s))- T_G^{k}p_s)$" /></a>. Where the 3D center point
 of the surfel in world space goes through the following transformations:
 
 
-- From 3D world space to 3D local camera space byTGk
-- From 3D local camera space to 2D local camera space (depth image) byπ
-- From 2D local camera space (depth image) back to 3D local camera space byπ−^1
+- From 3D world space to 3D local camera space by <a href="https://www.codecogs.com/eqnedit.php?latex=$T_G^k$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$T_G^k$" title="$T_G^k$" /></a>
+- From 3D local camera space to 2D local camera space (depth image) by <a href="https://www.codecogs.com/eqnedit.php?latex=$\pi$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$\pi$" title="$\pi$" /></a>
+- From 2D local camera space (depth image) back to 3D local camera space by <a href="https://www.codecogs.com/eqnedit.php?latex=$\pi^-1$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$\pi^-1$" title="$\pi^-1$" /></a>
 
 The 3D center point of the surfelpsgoes through all our transformations, if all the parameters
 of our transformations and the placement of our modeled surfel are correct, then difference
@@ -279,8 +279,8 @@ still be perpendicular, and thus result into a low error.
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=residual_{photo}(s,k)&space;=&space;\left&space;\|&space;\begin{bmatrix}&space;I(\pi_{I,k}(s_1))&space;-&space;I(\pi_{I,k}(p_s))&space;\\&space;I(\pi_{I,k}(s_2))&space;-&space;I(\pi_{I,k}(p_s))&space;\end{bmatrix}&space;\right&space;\|_2&space;-&space;d_s" target="_blank"><img src="https://latex.codecogs.com/gif.latex?residual_{photo}(s,k)&space;=&space;\left&space;\|&space;\begin{bmatrix}&space;I(\pi_{I,k}(s_1))&space;-&space;I(\pi_{I,k}(p_s))&space;\\&space;I(\pi_{I,k}(s_2))&space;-&space;I(\pi_{I,k}(p_s))&space;\end{bmatrix}&space;\right&space;\|_2&space;-&space;d_s" title="residual_{photo}(s,k) = \left \| \begin{bmatrix} I(\pi_{I,k}(s_1)) - I(\pi_{I,k}(p_s)) \\ I(\pi_{I,k}(s_2)) - I(\pi_{I,k}(p_s)) \end{bmatrix} \right \|_2 - d_s" /></a> (3)
 
-πI,kis the projection function to the RGB space and I() outputs a intensity value at a certain
-pixel location by using the bilinearly interpolation technique. s 1 ands 2 are sampled points
+<a href="https://www.codecogs.com/eqnedit.php?latex=$\pi_{I,k}$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$\pi_{I,k}$" title="$\pi_{I,k}$" /></a> is the projection function to the RGB space and I() outputs a intensity value at a certain
+pixel location by using the bilinearly interpolation technique. <a href="https://www.codecogs.com/eqnedit.php?latex=$s_1$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$s_1$" title="$s_1$" /></a> and <a href="https://www.codecogs.com/eqnedit.php?latex=$s_2$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$s_2$" title="$s_2$" /></a> are sampled points
 within a surfel such that <a href="https://www.codecogs.com/eqnedit.php?latex=$s_1&space;-&space;p_s$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$s_1&space;-&space;p_s$" title="$s_1 - p_s$" /></a> and <a href="https://www.codecogs.com/eqnedit.php?latex=$s_2&space;-&space;p$_s" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$s_2&space;-&space;p$_s" title="$s_2 - p$_s" /></a> are orthogonal (90 degree angle).
 
 For the photometric error we need to define a function which tells us how far off our modeled
