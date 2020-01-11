@@ -1,4 +1,5 @@
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
 ## Lex Meulenkamp
 ## 03727413 BAD SLAM
 - January 10, 3D CV and DL
