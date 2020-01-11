@@ -1,8 +1,10 @@
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-## Lex Meulenkamp
-## 03727413 BAD SLAM
-- January 10, 3D CV and DL
+---
+author: Lex Meulenkamp
+id: 03727413 
+title: BAD SLAM
+subject: 3D CV and DL
+---
 
 - 1 Intro SLAM Contents
 - 2 Background
