@@ -98,7 +98,8 @@ Every keypoints has it’s own descriptor. To get the correspondences we match t
 vectors by a certain distance metric between image one and two. Finding the best matches
 between descriptors is an important job for the rest of the SLAM pipeline. If the matches
 are bad then optimizing it with schemes such as bundle adjustment is fruitless.
-Some important techniques to make better matches are used are thresholding the max distance and RANSAC.
+Some important techniques to make better matches are used are thresholding the max distance and 
+[RANSAC](https://en.wikipedia.org/wiki/Random_sample_consensus).
 
 ### 2.3 Find Poses
 
@@ -115,7 +116,8 @@ change a set of points to a different base in
 3D space. The matrix that describes this relation between a pair of correspondences is
 the essential matrix. For all our <a href="https://www.codecogs.com/eqnedit.php?latex=$x$-$x^'$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$x$-$x^'$" title="$x$-$x^'$" /></a> feature
 pairs in homogeneous coordinates holds <a href="https://www.codecogs.com/eqnedit.php?latex=$x'&space;F&space;x&space;=&space;0$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$x'&space;F&space;x&space;=&space;0$" title="$x' F x = 0$" /></a>. There are different n-point algorithms;
-where the n corresponds to the feature correspondences we give the algorithm which estimates the essential matrix. A well known one, is the 8 point algorithm which needs 8 feature
+where the n corresponds to the feature correspondences we give the algorithm which estimates the essential matrix. A well known one, is the 
+[8-point algorithm](https://en.wikipedia.org/wiki/Eight-point_algorithm#The_normalized_eight-point_algorithm) which needs 8 feature
 correspondences and gives us an estimate of the essential matrix. From the essential matrix
 we can extract the second pose.
 According to Harley and Zisserman [1],’For a given essential matrix <a href="https://www.codecogs.com/eqnedit.php?latex=$E&space;=&space;U&space;diag(1,1,0)&space;V^T$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$E&space;=&space;U&space;diag(1,1,0)&space;V^T$" title="$E = U diag(1,1,0) V^T$" /></a>,
