@@ -219,9 +219,8 @@ quality of the 3D surfel for the surfels corresponding local keyframes.
 
 
 ## 4 Cost function
-$$
-C(K,S) = \sum_{k \in K}\sum_{s \in S_k}(p_{Tukey}(\sigma^{-1}_D residual_{geom}(s,k)) + w_{photo} p_{Huber}(\sigma^{-1}_p residual_{photo}(s,k)))
-$$
+<a href="https://www.codecogs.com/eqnedit.php?latex=C(K,S)&space;=&space;\sum_{k&space;\in&space;K}\sum_{s&space;\in&space;S_k}(p_{Tukey}(\sigma^{-1}_D&space;residual_{geom}(s,k))&space;&plus;&space;w_{photo}&space;p_{Huber}(\sigma^{-1}_p&space;residual_{photo}(s,k)))" target="_blank"><img src="https://latex.codecogs.com/gif.latex?C(K,S)&space;=&space;\sum_{k&space;\in&space;K}\sum_{s&space;\in&space;S_k}(p_{Tukey}(\sigma^{-1}_D&space;residual_{geom}(s,k))&space;&plus;&space;w_{photo}&space;p_{Huber}(\sigma^{-1}_p&space;residual_{photo}(s,k)))" title="C(K,S) = \sum_{k \in K}\sum_{s \in S_k}(p_{Tukey}(\sigma^{-1}_D residual_{geom}(s,k)) + w_{photo} p_{Huber}(\sigma^{-1}_p residual_{photo}(s,k)))" /></a>
+
 The main ingredients for the cost function are the geometric residuals and the photometric
 residuals. The geometric residual tells us how satisfied a local camera is with our placement
 of the surfel in the 3D map. The photometric error looks how satisfied a local camera is with
