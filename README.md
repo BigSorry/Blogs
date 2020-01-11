@@ -1,8 +1,7 @@
 ## Lex Meulenkamp
+## 03727413 BAD SLAM
+- January 10, 3D CV and DL
 
-# 03727413 BAD SLAM
-
-         - January 10, 3D CV and DL
 - 1 Intro SLAM Contents
 - 2 Background
    - 2.1 Direct vs Indirect
@@ -46,14 +45,8 @@ moving robot.
 
 ![alt text](https://github.com/BigSorry/Blogs/blob/master/images/keyframe.png)
 
-Lex Meulenkamp
 
-# 03727413 BAD SLAM
 
-```
-3D CV and DL
-January 10, 2020
-```
 ## 2 Background
 
 ### 2.1 Direct vs Indirect
@@ -181,6 +174,7 @@ intrinsic matrix if it’s not fixed. The BA scheme is a nonlinear squared error
 you can choose an optimization algorithms like Gauss-Newton to find the new parameters.
 
 
+
 ## 3 Data Representation
 
 The rest of the document is about the BAD SLAM paper [2].
@@ -219,23 +213,20 @@ for finding correspondences and at the same time they are needed to define a qua
 quality of the 3D surfel for the surfels corresponding local keyframes.
 
 
+
 ## 4 Cost function
 
-##### C(K,S) =
+\begin{equation}
+C(K,S) =
 
 ##### ∑
-
-```
 k∈K
-```
 ##### ∑
-
-```
 s∈Sk
-```
-```
+
 (pT ukey(σ−D^1 residualgeom(s,k)) +wphotopHuber(σp−^1 residualphoto(s,k))) (1)
-```
+\end{equation}
+
 The main ingredients for the cost function are the geometric residuals and the photometric
 residuals. The geometric residual tells us how satisfied a local camera is with our placement
 of the surfel in the 3D map. The photometric error looks how satisfied a local camera is with
