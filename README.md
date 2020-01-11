@@ -156,10 +156,10 @@ to optimise for the estimation errors we make in the front-end.
 Bundle adjustment (BA) is a scheme which minimizes the reprojection loss, which can be
 formulated as:
 <a href="https://www.codecogs.com/eqnedit.php?latex=$L&space;=&space;\left&space;\|x_l&space;-&space;\pi(Rx_w&space;&plus;&space;t)\right&space;\|^2$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$L&space;=&space;\left&space;\|x_l&space;-&space;\pi(Rx_w&space;&plus;&space;t)\right&space;\|^2$" title="$L = \left \|x_l - \pi(Rx_w + t)\right \|^2$" /></a>
-R is the rotation matrix and t the translation vector from the extrinsic camera of the local
+<a href="https://www.codecogs.com/eqnedit.php?latex=$R$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$R$" title="$R$" /></a> is the rotation matrix and <a href="https://www.codecogs.com/eqnedit.php?latex=$t$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$t$" title="$t$" /></a> the translation vector from the extrinsic camera of the local
 camera.πis the projection function determined by the intrinsic matrix.
 <a href="https://www.codecogs.com/eqnedit.php?latex=$Rx_w&space;&plus;&space;t$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$Rx_w&space;&plus;&space;t$" title="$Rx_w + t$" /></a> takes the 3D world point <a href="https://www.codecogs.com/eqnedit.php?latex=$x_w$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$x_w$" title="$x_w$" /></a> we used to build the map to the 3D space of the local camera.
-π projects this 3D point to it’s local 2D image plane.
+<a href="https://www.codecogs.com/eqnedit.php?latex=$\pi$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$\pi$" title="$\pi$" /></a> projects this 3D point to it’s local 2D image plane.
 If our estimated camera’s poses and triangulated 3D points are good, we should get small
 errors (residuals) between the projection of <a href="https://www.codecogs.com/eqnedit.php?latex=$x_w$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$x_w$" title="$x_w$" /></a> (global 3D point) for each <a href="https://www.codecogs.com/eqnedit.php?latex=$x_l$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$x_l$" title="$x_l$" /></a> (2D local
 camera point) correspondence. For each 3D point in our map we look at which local features
@@ -219,7 +219,7 @@ measurement in keyframe <a href="https://www.codecogs.com/eqnedit.php?latex=$k&s
 Tukey’s bitweight and Huber robust loss function with weighting parameter 10 are used.
 Those are mainly used for smoothing out the loss functions landscape, and those functions
 are commonly used in SLAM methods.
-<a href="https://www.codecogs.com/eqnedit.php?latex=$w_photo&space;=&space;10^{-2}$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$w_photo&space;=&space;10^{-2}$" title="$w_{photo} = 10^{-2}$" /></a> is a constant to make the geometric residual function more important
+<a href="https://www.codecogs.com/eqnedit.php?latex=$w_{photo}&space;=&space;10^{-2}$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$w_{photo}&space;=&space;10^{-2}$" title="$w_{photo} = 10^{-2}$" /></a> is a constant to make the geometric residual function more important
 Both functions have <a href="https://www.codecogs.com/eqnedit.php?latex=$\sigma^{-1}$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$\sigma^{-1}$" title="$\sigma^{-1}$" /></a> constant to count for standard deviations of our geometric and
 photometric measurements.
 
