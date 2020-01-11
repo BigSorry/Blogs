@@ -1,10 +1,10 @@
-### Title: BAD SLAM*.
-### Seminar: Recent Trends in 3D CV and DL
-### Author: Lex Meulenkamp
-### Id: 03727413
+#### Title: BAD SLAM
+#### Seminar: Recent Trends in 3D CV and DL
+#### Author: Lex Meulenkamp
+#### Id: 03727413
 
 ---
-
+## Contents
 - 1 Intro SLAM Contents
 - 2 Background
    - 2.1 Direct vs Indirect
@@ -31,7 +31,7 @@
 - 7 Last Remarks
 
 
-## 1 Intro SLAM Contents
+## 1 Intro SLAM 
 
 SLAM stands for simultaneously localization and mapping, where the localization refers to
 the objective to know where our camera has been. In other words, determining our camera
