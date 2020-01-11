@@ -68,8 +68,10 @@ from the images.
 The correspondences between 2D images is our main ingredient to make SLAM work. Therefore, I will talk a bit more about it from the indirect method; a more studied, and for a long
 time the best working method.
 However, you should be aware that entire books are written just for geometric correspondences problems for computer vision, thus if you are really interested you should read some
-key chapters from books like Multiple View Geometry in Computer Vision, Invitation to 3D
-Vision, Introductory Techniques for 3D Computer Vision.
+key chapters from books like
+[Multiple View Geometry in Computer Vision](https://www.amazon.com/Multiple-View-Geometry-Computer-Vision/dp/0521540518/ref=sr_1_1?keywords=multiple+view+geometry&qid=1578404654&s=books&sr=1-1),
+[Invitation to 3D Vision](https://www.amazon.com/Invitation-3-D-Vision-Interdisciplinary-Mathematics/dp/0387008934/ref=sr_1_2?keywords=3d+computer+vision&qid=1578404624&s=books&sr=1-2), 
+[Introductory Techniques for 3D Computer Vision](https://www.amazon.com/Introductory-Techniques-3-D-Computer-Vision/dp/0132611082/ref=sr_1_3?keywords=3d+computer+vision&qid=1578404624&s=books&sr=1-3).
 
 ### 2.2 Feature Correspondences
 
