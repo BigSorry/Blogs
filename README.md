@@ -79,9 +79,8 @@ Vision, Introductory Techniques for 3D Computer Vision.
 
 ### 2.2 Feature Correspondences
 
-```
-Figure 2: Feature matches
-```
+![alt text](https://github.com/BigSorry/Blogs/blob/master/images/features.png)
+
 When talking about images correspondences
 for the SLAM setting, Its often best to keep
 it simple and get some intuition from the
@@ -98,16 +97,6 @@ also used for state of the art ORB-SLAM2).
 Feature descriptors find keypoints (x,y image
 coordinates) within an image and each keypoint has an descriptor representation (vector).
 The keypoints are in general image locations where the image gradient is high, meaning that
-
-
-Lex Meulenkamp
-
-# 03727413 BAD SLAM
-
-```
-3D CV and DL
-January 10, 2020
-```
 there is a lot of image intensity change locally. Thus, for both images we end up with a
 sparse set of pixels from our image. These locations are vital information points within an
 image, and you could see it as an summary of the most important information of the image.
@@ -120,9 +109,8 @@ tance and RANSAC.
 
 ### 2.3 Find Poses
 
-```
-Figure 3: Pose
-```
+![alt text](https://github.com/BigSorry/Blogs/blob/master/images/pose.png)
+
 Lets say we initialise our first camera to iden-
 tity pose, thus the extrinsic matrix for the
 first camera is the identity matrix. At this
@@ -135,10 +123,8 @@ poses means finding a (extrinsic) matrix that
 change a set of points to a different base in
 3D space. The matrix that describes this re-
 lation between a pair of correspondences is
-the essential matrix. For all ourx-x
-′
-feature
-pairs in homogeneous coordinates holdsx′Fx= 0. There are different n-point algorithms;
+the essential matrix. For all our x-x′ feature
+pairs in homogeneous coordinates holds x′Fx= 0. There are different n-point algorithms;
 where the n corresponds to the feature correspondences we give the algorithm which esti-
 mates the essential matrix. A well known one, is the 8 point algorithm which needs 8 feature
 correspondences and gives us an estimate of the essential matrix. From the essential matrix
@@ -154,20 +140,10 @@ Thus, all we need to estimate a new camera pose in the future is 8 feature corre
 between this camera and another camera. At first we don’t have any camera poses that’s
 why we set only the first one to identity.
 
-
-Lex Meulenkamp
-
-# 03727413 BAD SLAM
-
-```
-3D CV and DL
-January 10, 2020
-```
 ### 2.4 Find 3D Points
 
-```
-Figure 4: Triangulation
-```
+![alt text](https://github.com/BigSorry/Blogs/blob/master/images/triangulation.png)
+
 At this stage, we can assume that we have
 two camera extrinsic matrices with their
 corresponding feature correspondences. For
@@ -205,14 +181,6 @@ intrinsic matrix if it’s not fixed. The BA scheme is a nonlinear squared error
 you can choose an optimization algorithms like Gauss-Newton to find the new parameters.
 
 
-Lex Meulenkamp
-
-# 03727413 BAD SLAM
-
-```
-3D CV and DL
-January 10, 2020
-```
 ## 3 Data Representation
 
 The rest of the document is about the BAD SLAM paper [2].
@@ -225,9 +193,8 @@ connected property like the well known polygon made by triangles (faces) and the
 sponding vertices. This is beneficial in terms of processing speed for creating the 3D map
 of thousands of geometric primitives. For a surfel we need to store the following attributes
 
-```
-Figure 5: Surfel
-```
+![alt text](https://github.com/BigSorry/Blogs/blob/master/images/surfel.png)
+
 - 3D center point P
 - 3D normal vector n
 - Radius of the surfel r
@@ -252,14 +219,6 @@ for finding correspondences and at the same time they are needed to define a qua
 quality of the 3D surfel for the surfels corresponding local keyframes.
 
 
-Lex Meulenkamp
-
-# 03727413 BAD SLAM
-
-```
-3D CV and DL
-January 10, 2020
-```
 ## 4 Cost function
 
 ##### C(K,S) =
@@ -315,14 +274,6 @@ This is a difference vector in 3D space (πD,k−^1 (πD,kk (TGkps))−TGkps). W
 of the surfel in world space goes through the following transformations:
 
 
-Lex Meulenkamp
-
-# 03727413 BAD SLAM
-
-```
-3D CV and DL
-January 10, 2020
-```
 - From 3D world space to 3D local camera space byTGk
 - From 3D local camera space to 2D local camera space (depth image) byπ
 - From 2D local camera space (depth image) back to 3D local camera space byπ−^1
@@ -390,23 +341,14 @@ SLAM. That’s why they just sample two points within the surfel and use those t
 the gradient magnitude of the surfel.
 
 
-Lex Meulenkamp
-
-# 03727413 BAD SLAM
-
-```
-3D CV and DL
-January 10, 2020
-```
 ## 5 Optimization
 
 Figure 6 shows the optimization steps of their implemented direct BA scheme. The key
 elements of the algorithm is the alternating behavior optimization in steps 4 and 6 which
 deals with solving the geometric/photometric and keyframes parameters respectively.
 
-```
-Figure 6: Optimization algorithm
-```
+![alt text](https://github.com/BigSorry/Blogs/blob/master/images/optimization.png)
+
 ### 5.1 Surfel Creation
 
 The keyframes are first partitioned in 4x4 pixel grids; these grids are used for surfel creation,
@@ -425,15 +367,6 @@ gradients are averaged and this value will be the new normal vector property for
 The biggest benefit of this approach is that BA optimiation becomes less complicated, and
 results into less computation time.
 
-
-Lex Meulenkamp
-
-# 03727413 BAD SLAM
-
-```
-3D CV and DL
-January 10, 2020
-```
 ### 5.3 Surfel Position and Descriptors
 
 The 3D surfel center position and the magnitude gradient color descriptors properties are
@@ -451,14 +384,6 @@ each keyframe, and by the alternating approach we now fix the parameters for the
 properties in the BA scheme.
 
 
-Lex Meulenkamp
-
-# 03727413 BAD SLAM
-
-```
-3D CV and DL
-January 10, 2020
-```
 ## 6 Benchmarks
 
 ### 6.1 TUM RGB-D
@@ -466,9 +391,8 @@ January 10, 2020
 The indirect methods are BundleFusion [3] — uses SIFT as feature descriptor — and ORB-
 SLAM2 [4]. While the other methods lean more to the direct approach.
 
-```
-Figure 7: TUM benchmark results
-```
+![alt text](https://github.com/BigSorry/Blogs/blob/master/images/bench_1.png)
+
 The TUM RGB-D benchmark contains multiple datasets for testing the accuracy of the
 SLAM pipeline. The BAD-SLAM approach reaches the second average rank once they also
 optimize for the intrinsics. Once we have to fix the intrinsics the performance degrades quite
@@ -483,14 +407,6 @@ They show only results for a small subset of the TUM benchmark; it would be inte
 see how this methods performs on more datasets from the TUM benchmarks.
 
 
-Lex Meulenkamp
-
-# 03727413 BAD SLAM
-
-```
-3D CV and DL
-January 10, 2020
-```
 ### 6.2 Own benchmark
 
 Before we go on to the result, I want to briefly discuss the hardware side of things, because
@@ -520,19 +436,10 @@ cameras. Also, a lot of artifact’s like distortion and skewness can be dealt w
 side and if your reading speed is fast enough then the artifacts are hard to notice.
 
 
-Lex Meulenkamp
-
-# 03727413 BAD SLAM
-
-```
-3D CV and DL
-January 10, 2020
-```
 #### 6.2.2 Benchmark results
 
-```
-Figure 8: Own benchmark results
-```
+![alt text](https://github.com/BigSorry/Blogs/blob/master/images/bench_2.png)
+
 In this method, BAD SLAM is the best approach and even outperforms ORB-SLAM2. While
 this definitely is impressive for a direct-method; their method is fine tuned for this dataset
 and the authors do not explain how they fine tuned the other methods for this dataset.
@@ -559,14 +466,6 @@ the gradient magnitudes. This is something you can’t really avoid in direct SL
 - Tested only on few datasets
 
 
-Lex Meulenkamp
-
-# 03727413 BAD SLAM
-
-```
-3D CV and DL
-January 10, 2020
-```
 # References
 
 [1] Richard Hartley and Andrew Zisserman. Multiple view geometry in computer vision.
