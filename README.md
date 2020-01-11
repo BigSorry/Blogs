@@ -219,7 +219,7 @@ measurement in keyframe <a href="https://www.codecogs.com/eqnedit.php?latex=$k&s
 Tukey’s bitweight and Huber robust loss function with weighting parameter 10 are used.
 Those are mainly used for smoothing out the loss functions landscape, and those functions
 are commonly used in SLAM methods.
-<a href="https://www.codecogs.com/eqnedit.php?latex=$w_photo&space;=&space;10^{-2}$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$w_photo&space;=&space;10^{-2}$" title="$w_photo = 10^{-2}$" /></a> is a constant to make the geometric residual function more important
+<a href="https://www.codecogs.com/eqnedit.php?latex=$w_photo&space;=&space;10^{-2}$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$w_photo&space;=&space;10^{-2}$" title="$w_{photo} = 10^{-2}$" /></a> is a constant to make the geometric residual function more important
 Both functions have <a href="https://www.codecogs.com/eqnedit.php?latex=$\sigma^{-1}$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$\sigma^{-1}$" title="$\sigma^{-1}$" /></a> constant to count for standard deviations of our geometric and
 photometric measurements.
 
@@ -255,7 +255,7 @@ of our transformations and the placement of our modeled surfel are correct, then
 vector should be close to zero.
 
 A difference/residual vector is a must have for SLAM and is also used in indirect methods.
-What is really different from the indirect approach is the inclusion of the part (TGkns)Twhich
+What is really different from the indirect approach is the inclusion of the part <a href="https://www.codecogs.com/eqnedit.php?latex=$(T_G^k)^T$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$(T_G^k)^T$" title="$(T_G^k)^T$" /></a> which
 makes equation **(2)** a dot product. Equation **(2)** is a dot product between the 3D normal
 vector of our modelled surfel in the 3D local camera space and a residual/difference vector
 in the 3D local camera space. The dot product enforces the optimization scheme to show
