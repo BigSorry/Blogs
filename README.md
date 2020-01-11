@@ -163,7 +163,7 @@ to optimise for the estimation errors we make in the front-end.
 
 Bundle adjustment (BA) is a scheme which minimizes the reprojection loss, which can be
 formulated as:
-L=||xl−π(Rxw+t)||^2.
+<a href="https://www.codecogs.com/eqnedit.php?latex=$L&space;=&space;\left&space;\|x_l&space;-&space;\pi(Rx_w&space;&plus;&space;t)\right&space;\|^2$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$L&space;=&space;\left&space;\|x_l&space;-&space;\pi(Rx_w&space;&plus;&space;t)\right&space;\|^2$" title="$L = \left \|x_l - \pi(Rx_w + t)\right \|^2$" /></a>
 R is the rotation matrix and t the translation vector from the extrinsic camera of the local
 camera.πis the projection function determined by the intrinsic matrix.
 Rxw+ttakes the 3D world pointxwwe used to build the map to the 3D space of the local
@@ -219,7 +219,7 @@ quality of the 3D surfel for the surfels corresponding local keyframes.
 
 
 ## 4 Cost function
-<a href="https://www.codecogs.com/eqnedit.php?latex=C(K,S)&space;=&space;\sum_{k&space;\in&space;K}\sum_{s&space;\in&space;S_k}(p_{Tukey}(\sigma^{-1}_D&space;residual_{geom}(s,k))&space;&plus;&space;w_{photo}&space;p_{Huber}(\sigma^{-1}_p&space;residual_{photo}(s,k)))" target="_blank"><img src="https://latex.codecogs.com/gif.latex?C(K,S)&space;=&space;\sum_{k&space;\in&space;K}\sum_{s&space;\in&space;S_k}(p_{Tukey}(\sigma^{-1}_D&space;residual_{geom}(s,k))&space;&plus;&space;w_{photo}&space;p_{Huber}(\sigma^{-1}_p&space;residual_{photo}(s,k)))" title="C(K,S) = \sum_{k \in K}\sum_{s \in S_k}(p_{Tukey}(\sigma^{-1}_D residual_{geom}(s,k)) + w_{photo} p_{Huber}(\sigma^{-1}_p residual_{photo}(s,k)))" /></a>
+<a href="https://www.codecogs.com/eqnedit.php?latex=C(K,S)&space;=&space;\sum_{k&space;\in&space;K}\sum_{s&space;\in&space;S_k}(p_{Tukey}(\sigma^{-1}_D&space;residual_{geom}(s,k))&space;&plus;&space;w_{photo}&space;p_{Huber}(\sigma^{-1}_p&space;residual_{photo}(s,k)))" target="_blank"><img src="https://latex.codecogs.com/gif.latex?C(K,S)&space;=&space;\sum_{k&space;\in&space;K}\sum_{s&space;\in&space;S_k}(p_{Tukey}(\sigma^{-1}_D&space;residual_{geom}(s,k))&space;&plus;&space;w_{photo}&space;p_{Huber}(\sigma^{-1}_p&space;residual_{photo}(s,k)))" title="C(K,S) = \sum_{k \in K}\sum_{s \in S_k}(p_{Tukey}(\sigma^{-1}_D residual_{geom}(s,k)) + w_{photo} p_{Huber}(\sigma^{-1}_p residual_{photo}(s,k)))" /></a> (1)
 
 The main ingredients for the cost function are the geometric residuals and the photometric
 residuals. The geometric residual tells us how satisfied a local camera is with our placement
@@ -237,9 +237,8 @@ photometric measurements.
 
 ### 4.1 Geometric Residual
 
-```
-residualgeom(s,k) = (TGkns)T(π−D,k^1 (πD,kk (TGkps))−TGkps)) (2)
-```
+<a href="https://www.codecogs.com/eqnedit.php?latex=residual_{geom}(s,k)&space;=&space;(T_G^kn_s)^{T}(\pi^{-1}_{D,k}(\pi_{D,k}^{k}(T_G^{k}p_s))-&space;T_G^{k}p_s))\label{fun_geo}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?residual_{geom}(s,k)&space;=&space;(T_G^kn_s)^{T}(\pi^{-1}_{D,k}(\pi_{D,k}^{k}(T_G^{k}p_s))-&space;T_G^{k}p_s))\label{fun_geo}" title="residual_{geom}(s,k) = (T_G^kn_s)^{T}(\pi^{-1}_{D,k}(\pi_{D,k}^{k}(T_G^{k}p_s))- T_G^{k}p_s))\label{fun_geo}" /></a> (2)
+
 To keep track of what the geometric residual is doing it’s important to keep in mind what
 all the transformations are doing. We have the following dimensions:
 
@@ -279,37 +278,8 @@ still be perpendicular, and thus result into a low error.
 
 ### 4.2 Photometric Residual
 
-```
-residualphoto(s,k) =
-```
-##### ∥
+<a href="https://www.codecogs.com/eqnedit.php?latex=residual_{photo}(s,k)&space;=&space;\left&space;\|&space;\begin{bmatrix}&space;I(\pi_{I,k}(s_1))&space;-&space;I(\pi_{I,k}(p_s))&space;\\&space;I(\pi_{I,k}(s_2))&space;-&space;I(\pi_{I,k}(p_s))&space;\end{bmatrix}&space;\right&space;\|_2&space;-&space;d_s" target="_blank"><img src="https://latex.codecogs.com/gif.latex?residual_{photo}(s,k)&space;=&space;\left&space;\|&space;\begin{bmatrix}&space;I(\pi_{I,k}(s_1))&space;-&space;I(\pi_{I,k}(p_s))&space;\\&space;I(\pi_{I,k}(s_2))&space;-&space;I(\pi_{I,k}(p_s))&space;\end{bmatrix}&space;\right&space;\|_2&space;-&space;d_s" title="residual_{photo}(s,k) = \left \| \begin{bmatrix} I(\pi_{I,k}(s_1)) - I(\pi_{I,k}(p_s)) \\ I(\pi_{I,k}(s_2)) - I(\pi_{I,k}(p_s)) \end{bmatrix} \right \|_2 - d_s" /></a> (3)
 
-##### ∥
-
-##### ∥
-
-##### ∥
-
-##### [
-
-```
-I(πI,k(s 1 ))−I(πI,k(ps))
-I(πI,k(s 2 ))−I(πI,k(ps))
-```
-##### ]∥
-
-##### ∥
-
-##### ∥
-
-##### ∥
-
-```
-2
-```
-```
-−ds (3)
-```
 πI,kis the projection function to the RGB space and I() outputs a intensity value at a certain
 pixel location by using the bilinearly interpolation technique. s 1 ands 2 are sampled points
 within a surfel such thats 1 −psands 2 −pare orthogonal (90 degree angle).
