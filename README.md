@@ -172,7 +172,7 @@ you can choose an optimization algorithms like Gauss-Newton to find the new para
 
 ## 3 Data Representation
 
-The rest of the document is about the BAD SLAM paper [2].
+The rest of the document is about the BAD SLAM paper **[2]**.
 
 ### 3.1 Surfel
 
@@ -190,7 +190,7 @@ of thousands of geometric primitives. For a surfel we need to store the followin
 The 3D center point and radius enables us
 to know where to draw this surfel in the 3D
 world. The 3D normal is mainly used for optimization purposes which we will see in the
-geometric residual section 4.1. The scalar
+geometric residual section **4.1**. The scalar
 visual descriptor is used for the photometric
 error.
 
@@ -256,7 +256,7 @@ vector should be close to zero.
 
 A difference/residual vector is a must have for SLAM and is also used in indirect methods.
 What is really different from the indirect approach is the inclusion of the part (TGkns)Twhich
-makes equation (2) a dot product. Equation (2) is a dot product between the 3D normal
+makes equation **(2)** a dot product. Equation **(2)** is a dot product between the 3D normal
 vector of our modelled surfel in the 3D local camera space and a residual/difference vector
 in the 3D local camera space. The dot product enforces the optimization scheme to show
 preference to transformation parameters that move the surfel along the normal direction. A
@@ -273,9 +273,9 @@ pixel location by using the bilinearly interpolation technique. <a href="https:/
 within a surfel such that <a href="https://www.codecogs.com/eqnedit.php?latex=$s_1&space;-&space;p_s$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$s_1&space;-&space;p_s$" title="$s_1 - p_s$" /></a> and <a href="https://www.codecogs.com/eqnedit.php?latex=$s_2&space;-&space;p$_s" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$s_2&space;-&space;p$_s" title="$s_2 - p$_s" /></a> are orthogonal (90 degree angle).
 
 For the photometric error we need to define a function which tells us how far off our modeled
-surfel colors are. The paper uses equation (3) which compares the scalar magnitude of two
+surfel colors are. The paper uses equation **(3)** which compares the scalar magnitude of two
 gradients obtained from the RGB space; those magnitudes are the surfel visual descriptords,
-every surfel has adsproperty, it’s one of the surfel properties from section 3..
+every surfel has adsproperty, it’s one of the surfel properties from section **3.1**
 The 2D gradient vector of a pixel points in the direction of the highest image intensity
 change. The magnitude is the length of this vector which indicates how strong the intensity
 change is. You could compute an average magnitude for all the pixels of a surfel. This might
@@ -286,7 +286,7 @@ the gradient magnitude of the surfel.
 
 ## 5 Optimization
 
-Figure 6 shows the optimization steps of their implemented direct BA scheme. The key
+Figure **6** shows the optimization steps of their implemented direct BA scheme. The key
 elements of the algorithm is the alternating behavior optimization in steps 4 and 6 which
 deals with solving the geometric/photometric and keyframes parameters respectively.
 
@@ -328,8 +328,8 @@ properties in the BA scheme.
 
 ### 6.1 TUM RGB-D
 
-The indirect methods are BundleFusion [3] — uses SIFT as feature descriptor — and ORB-
-SLAM2 [4]. While the other methods lean more to the direct approach.
+The indirect methods are BundleFusion **[3]** — uses SIFT as feature descriptor — and ORB-
+SLAM2 **[4]**. While the other methods lean more to the direct approach.
 
 ![alt text](https://github.com/BigSorry/Blogs/blob/master/images/bench_1.png)
 
@@ -369,7 +369,8 @@ physical scene at a different time. This also creates the asynchronous part; eac
 captured images is taken at a different timestamp.
 Global shutter captures all the light of the scene at the same time, thus all parts of the
 sensors are either on or off. The following link has multiple gif’s and videos which show the
-effects nicely: shutter visualizations
+effects nicely: 
+[shutter visualizations](https://www.premiumbeat.com/blog/know-the-basics-of-global-shutter-vs-rolling-shutter/)
 Global shutter has less image artifacts than rolling shutter, but the electronic circuits are
 more complicated which makes global shutter cameras more expansive than rolling shutter
 cameras. Also, a lot of artifact’s like distortion and skewness can be dealt with at the software
