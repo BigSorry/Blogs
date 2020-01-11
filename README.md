@@ -107,7 +107,9 @@ Some important techniques to make better matches are used are thresholding the m
 ### 2.3 Find Poses
 
 ![alt text](https://github.com/BigSorry/Blogs/blob/master/images/pose.png)
+<br/><br/>
 Figure 3: Pose
+<br/><br/>
 
 Lets say we initialise our first camera to identity pose, thus the extrinsic matrix for the
 first camera is the identity matrix. At this
