@@ -47,8 +47,9 @@ is in a location without reliable GPS information, SLAM becomes vital for an aut
 moving robot.
 
 ![alt text](https://github.com/BigSorry/Blogs/blob/master/images/keyframe.png)
+<br/><br/>
 Figure 1: Output SLAM
-
+<br/><br/>
 
 ## 2 Background
 
@@ -75,7 +76,9 @@ key chapters from books like
 ### 2.2 Feature Correspondences
 
 ![alt text](https://github.com/BigSorry/Blogs/blob/master/images/features.png) 
+<br/><br/>
 Figure 2: Feature Matches
+<br/><br/>
 
 When talking about images correspondences
 for the SLAM setting, Its often best to keep
@@ -135,8 +138,9 @@ why we set only the first one to identity.
 ### 2.4 Find 3D Points
 
 ![alt text](https://github.com/BigSorry/Blogs/blob/master/images/triangulation.png)
+<br/><br/>
 Figure 4: Triangulation
-
+<br/><br/>
 
 At this stage, we can assume that we have
 two camera extrinsic matrices with their
@@ -184,8 +188,9 @@ connected property like the well known polygon made by triangles (faces) and the
 of thousands of geometric primitives. For a surfel we need to store the following attributes
 
 ![alt text](https://github.com/BigSorry/Blogs/blob/master/images/surfel.png)
+<br/><br/>
 Figure 5: Surfel
-
+<br/><br/>
 
 - 3D center point P
 - 3D normal vector n
@@ -296,8 +301,9 @@ elements of the algorithm is the alternating behavior optimization in steps 4 an
 deals with solving the geometric/photometric and keyframes parameters respectively.
 
 ![alt text](https://github.com/BigSorry/Blogs/blob/master/images/optimization.png)
+<br/><br/>
 Figure 6: Direct alternated BA Optimization
-
+<br/><br/>
 
 ### 5.1 Surfel Creation
 
@@ -339,8 +345,9 @@ The indirect methods are BundleFusion **[3]** — uses SIFT as feature descripto
 SLAM2 **[4]**. While the other methods lean more to the direct approach.
 
 ![alt text](https://github.com/BigSorry/Blogs/blob/master/images/bench_1.png)
+<br/><br/>
 Figure 7: TUM Benchmark Results
-
+<br/><br/>
 
 The TUM RGB-D benchmark contains multiple datasets for testing the accuracy of the
 SLAM pipeline. The BAD-SLAM approach reaches the second average rank once they also
@@ -389,8 +396,9 @@ side and if your reading speed is fast enough then the artifacts are hard to not
 #### 6.2.2 Benchmark results
 
 ![alt text](https://github.com/BigSorry/Blogs/blob/master/images/bench_2.png)
+<br/><br/>
 Figure 8: Own Benchmark Results
-
+<br/><br/>
 
 In this method, BAD SLAM is the best approach and even outperforms ORB-SLAM2. While
 this definitely is impressive for a direct method; their method is fine tuned for this dataset
