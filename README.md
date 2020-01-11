@@ -29,14 +29,6 @@
 - 7 Last Remarks
 
 
-Lex Meulenkamp
-
-# 03727413 BAD SLAM
-
-```
-3D CV and DL
-January 10, 2020
-```
 ## 1 Intro SLAM Contents
 
 SLAM stands for simultaneously localization and mapping, where the localization refers to
@@ -52,9 +44,7 @@ important information to be able to move through the physical world. Especially,
 is in a location without reliable GPS information, SLAM becomes vital for an autonomous
 moving robot.
 
-```
-Figure 1: Output SLAM
-```
+![alt text](https://raw.githubusercontent.com/BigSorry/Blogs/master/images/keyframe.png)
 
 Lex Meulenkamp
 
