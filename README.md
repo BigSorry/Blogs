@@ -215,18 +215,11 @@ quality of the 3D surfel for the surfels corresponding local keyframes.
 
 
 ## 4 Cost function
-
-\begin{equation}
-C(K,S) =
-
-##### ∑
-k∈K
-##### ∑
-s∈Sk
-
-(pT ukey(σ−D^1 residualgeom(s,k)) +wphotopHuber(σp−^1 residualphoto(s,k))) (1)
-\end{equation}
-
+<div class="math">
+   \begin{equation}
+       C(K,S) = \sum_{k \in K}\sum_{s \in S_k}(p_{Tukey}(\sigma^{-1}_D residual_{geom}(s,k)) + w_{photo} p_{Huber}(\sigma^{-1}_p residual_{photo}(s,k)))
+   \end{equation}
+</div>
 The main ingredients for the cost function are the geometric residuals and the photometric
 residuals. The geometric residual tells us how satisfied a local camera is with our placement
 of the surfel in the 3D map. The photometric error looks how satisfied a local camera is with
