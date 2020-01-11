@@ -1,9 +1,8 @@
+### Title: BAD SLAM*.
+### Seminar: Recent Trends in 3D CV and DL
+### Author: Lex Meulenkamp
+### Id: 03727413
 
----
-### author: Lex Meulenkamp*.
-### id: 03727413*.
-### title: BAD SLAM*.
-### subject: 3D CV and DL*.
 ---
 
 - 1 Intro SLAM Contents
