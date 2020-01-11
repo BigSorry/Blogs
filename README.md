@@ -121,7 +121,7 @@ change a set of points to a different base in
 3D space. The matrix that describes this re-
 lation between a pair of correspondences is
 the essential matrix. For all our <a href="https://www.codecogs.com/eqnedit.php?latex=$x$-$x^'$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$x$-$x^'$" title="$x$-$x^'$" /></a> feature
-pairs in homogeneous coordinates holds x′Fx= 0. There are different n-point algorithms;
+pairs in homogeneous coordinates holds <a href="https://www.codecogs.com/eqnedit.php?latex=$x'&space;F&space;x&space;=&space;0$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$x'&space;F&space;x&space;=&space;0$" title="$x' F x = 0$" /></a>. There are different n-point algorithms;
 where the n corresponds to the feature correspondences we give the algorithm which esti-
 mates the essential matrix. A well known one, is the 8 point algorithm which needs 8 feature
 correspondences and gives us an estimate of the essential matrix. From the essential matrix
@@ -166,11 +166,10 @@ formulated as:
 <a href="https://www.codecogs.com/eqnedit.php?latex=$L&space;=&space;\left&space;\|x_l&space;-&space;\pi(Rx_w&space;&plus;&space;t)\right&space;\|^2$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$L&space;=&space;\left&space;\|x_l&space;-&space;\pi(Rx_w&space;&plus;&space;t)\right&space;\|^2$" title="$L = \left \|x_l - \pi(Rx_w + t)\right \|^2$" /></a>
 R is the rotation matrix and t the translation vector from the extrinsic camera of the local
 camera.πis the projection function determined by the intrinsic matrix.
-Rxw+ttakes the 3D world pointxwwe used to build the map to the 3D space of the local
-camera.
-πprojects this 3D point to it’s local 2D image plane.
+<a href="https://www.codecogs.com/eqnedit.php?latex=$Rx_w&space;&plus;&space;t$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$Rx_w&space;&plus;&space;t$" title="$Rx_w + t$" /></a> takes the 3D world point <a href="https://www.codecogs.com/eqnedit.php?latex=$x_w$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$x_w$" title="$x_w$" /></a> we used to build the map to the 3D space of the local camera.
+π projects this 3D point to it’s local 2D image plane.
 If our estimated camera’s poses and triangulated 3D points are good, we should get small
-errors (residuals) between the projection of xw (global 3D point) for each xl (2D local
+errors (residuals) between the projection of <a href="https://www.codecogs.com/eqnedit.php?latex=$x_w$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$x_w$" title="$x_w$" /></a> (global 3D point) for each <a href="https://www.codecogs.com/eqnedit.php?latex=$x_l$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$x_l$" title="$x_l$" /></a> (2D local
 camera point) correspondence. For each 3D point in our map we look at which local features
 were used to compute it, and compute the loss. BA will jointly optimise our 3D world points
 (we got from triangulation), extrinsic matrices (we got from essential matrix), and optionally
@@ -226,13 +225,13 @@ residuals. The geometric residual tells us how satisfied a local camera is with 
 of the surfel in the 3D map. The photometric error looks how satisfied a local camera is with
 the coloring of the corresponding surfel.
 
-K is the set of all the keyframes andSk is the set of all surfels that have a corresponding
-measurement in keyframek∈K.
+K is the set of all the keyframes and <a href="https://www.codecogs.com/eqnedit.php?latex=$S_k$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$S_k$" title="$S_k$" /></a> is the set of all surfels that have a corresponding
+measurement in keyframe <a href="https://www.codecogs.com/eqnedit.php?latex=$k&space;\in&space;K$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$k&space;\in&space;K$" title="$k \in K$" /></a>.
 Tukey’s bitweight and Huber robust loss function with weighting parameter 10 are used.
 Those are mainly used for smoothing out the loss functions landscape, and those functions
 are commonly used in SLAM methods.
-wphoto= 10−^2 is a constant to make the geometric residual function more important
-Both functions haveσ−^1 constant to count for standard deviations of our geometric and
+<a href="https://www.codecogs.com/eqnedit.php?latex=$w_photo&space;=&space;10^{-2}$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$w_photo&space;=&space;10^{-2}$" title="$w_photo = 10^{-2}$" /></a> is a constant to make the geometric residual function more important
+Both functions have <a href="https://www.codecogs.com/eqnedit.php?latex=$\sigma^{-1}$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$\sigma^{-1}$" title="$\sigma^{-1}$" /></a> constant to count for standard deviations of our geometric and
 photometric measurements.
 
 ### 4.1 Geometric Residual
@@ -282,7 +281,7 @@ still be perpendicular, and thus result into a low error.
 
 πI,kis the projection function to the RGB space and I() outputs a intensity value at a certain
 pixel location by using the bilinearly interpolation technique. s 1 ands 2 are sampled points
-within a surfel such thats 1 −psands 2 −pare orthogonal (90 degree angle).
+within a surfel such that <a href="https://www.codecogs.com/eqnedit.php?latex=$s_1&space;-&space;p_s$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$s_1&space;-&space;p_s$" title="$s_1 - p_s$" /></a> and <a href="https://www.codecogs.com/eqnedit.php?latex=$s_2&space;-&space;p$_s" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$s_2&space;-&space;p$_s" title="$s_2 - p$_s" /></a> are orthogonal (90 degree angle).
 
 For the photometric error we need to define a function which tells us how far off our modeled
 surfel colors are. The paper uses equation (3) which compares the scalar magnitude of two
