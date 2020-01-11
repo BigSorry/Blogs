@@ -44,7 +44,7 @@ important information to be able to move through the physical world. Especially,
 is in a location without reliable GPS information, SLAM becomes vital for an autonomous
 moving robot.
 
-![alt text](https://raw.githubusercontent.com/BigSorry/Blogs/master/images/keyframe.png)
+![alt text](https://github.com/BigSorry/Blogs/blob/master/images/keyframe.png)
 
 Lex Meulenkamp
 
