@@ -48,7 +48,7 @@ is in a location without reliable GPS information, SLAM becomes vital for an aut
 moving robot.
 
 ![alt text](https://github.com/BigSorry/Blogs/blob/master/images/keyframe.png)
-
+Figure 1: Output SLAM
 
 
 ## 2 Background
@@ -76,7 +76,7 @@ key chapters from books like
 ### 2.2 Feature Correspondences
 
 ![alt text](https://github.com/BigSorry/Blogs/blob/master/images/features.png) 
-figure 1: Output SLAM
+Figure 2: Feature Matches
 
 When talking about images correspondences
 for the SLAM setting, Its often best to keep
@@ -105,6 +105,7 @@ Some important techniques to make better matches are used are thresholding the m
 ### 2.3 Find Poses
 
 ![alt text](https://github.com/BigSorry/Blogs/blob/master/images/pose.png)
+Figure 3: Pose
 
 Lets say we initialise our first camera to identity pose, thus the extrinsic matrix for the
 first camera is the identity matrix. At this
@@ -135,6 +136,7 @@ why we set only the first one to identity.
 ### 2.4 Find 3D Points
 
 ![alt text](https://github.com/BigSorry/Blogs/blob/master/images/triangulation.png)
+Figure 4: Triangulation
 
 At this stage, we can assume that we have
 two camera extrinsic matrices with their
@@ -182,6 +184,7 @@ connected property like the well known polygon made by triangles (faces) and the
 of thousands of geometric primitives. For a surfel we need to store the following attributes
 
 ![alt text](https://github.com/BigSorry/Blogs/blob/master/images/surfel.png)
+Figure 5: Surfel
 
 - 3D center point P
 - 3D normal vector n
@@ -292,6 +295,7 @@ elements of the algorithm is the alternating behavior optimization in steps 4 an
 deals with solving the geometric/photometric and keyframes parameters respectively.
 
 ![alt text](https://github.com/BigSorry/Blogs/blob/master/images/optimization.png)
+Figure 6: Direct alternated BA Optimization
 
 ### 5.1 Surfel Creation
 
@@ -333,6 +337,7 @@ The indirect methods are BundleFusion **[3]** — uses SIFT as feature descripto
 SLAM2 **[4]**. While the other methods lean more to the direct approach.
 
 ![alt text](https://github.com/BigSorry/Blogs/blob/master/images/bench_1.png)
+Figure 7: TUM Benchmark Results
 
 The TUM RGB-D benchmark contains multiple datasets for testing the accuracy of the
 SLAM pipeline. The BAD-SLAM approach reaches the second average rank once they also
@@ -381,6 +386,7 @@ side and if your reading speed is fast enough then the artifacts are hard to not
 #### 6.2.2 Benchmark results
 
 ![alt text](https://github.com/BigSorry/Blogs/blob/master/images/bench_2.png)
+Figure 8: Own Benchmark Results
 
 In this method, BAD SLAM is the best approach and even outperforms ORB-SLAM2. While
 this definitely is impressive for a direct method; their method is fine tuned for this dataset
