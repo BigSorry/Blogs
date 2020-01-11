@@ -63,14 +63,11 @@ extraction by a feature detector. Big challenge for the indirect methods is that
 adjustment scheme has to optimise for more parameters due to using more pixel information.
 For a long time this has been considered to be compatibility infeasible. Recently, there are
 more indirect methods being published while also coming close in performance with state of
-the art direct methods, and this paper is one of them which tries to tackle SLAM optimiza-
-tion in an indirect manner, thus skipping the feature extraction step and using all the pixels
+the art direct methods, and this paper is one of them which tries to tackle SLAM optimization in an indirect manner, thus skipping the feature extraction step and using all the pixels
 from the images.
-The correspondences between 2D images is our main ingredient to make SLAM work. There-
-fore, I will talk a bit more about it from the indirect method; a more studied, and for a long
+The correspondences between 2D images is our main ingredient to make SLAM work. Therefore, I will talk a bit more about it from the indirect method; a more studied, and for a long
 time the best working method.
-However, you should be aware that entire books are written just for geometric correspon-
-dences problems for computer vision, thus if you are really interested you should read some
+However, you should be aware that entire books are written just for geometric correspondences problems for computer vision, thus if you are really interested you should read some
 key chapters from books like Multiple View Geometry in Computer Vision, Invitation to 3D
 Vision, Introductory Techniques for 3D Computer Vision.
 
@@ -81,15 +78,13 @@ Vision, Introductory Techniques for 3D Computer Vision.
 When talking about images correspondences
 for the SLAM setting, Its often best to keep
 it simple and get some intuition from the
-case where we try to infer (pixel) correspon-
-dences between two images. How can we tell
+case where we try to infer (pixel) correspondences between two images. How can we tell
 the computer that two pixel locations both
 from a different image correspond to the
 same physical location from the real world?
 Feature descriptors are often used to tackle
 this problem within computer vision. You
-might have heard of famous feature descrip-
-tors like SIFT, SURF, and ORB (which is
+might have heard of famous feature descriptors like SIFT, SURF, and ORB (which is
 also used for state of the art ORB-SLAM2).
 Feature descriptors find keypoints (x,y image
 coordinates) within an image and each keypoint has an descriptor representation (vector).
@@ -101,29 +96,24 @@ Every keypoints has it’s own descriptor. To get the correspondences we match t
 vectors by a certain distance metric between image one and two. Finding the best matches
 between descriptors is an important job for the rest of the SLAM pipeline. If the matches
 are bad then optimizing it with schemes such as bundle adjustment is fruitless.
-Some important techniques to make better matches are used are thresholding the max dis-
-tance and RANSAC.
+Some important techniques to make better matches are used are thresholding the max distance and RANSAC.
 
 ### 2.3 Find Poses
 
 ![alt text](https://github.com/BigSorry/Blogs/blob/master/images/pose.png)
 
-Lets say we initialise our first camera to iden-
-tity pose, thus the extrinsic matrix for the
+Lets say we initialise our first camera to identity pose, thus the extrinsic matrix for the
 first camera is the identity matrix. At this
-stage of the pipeline we have feature cor-
-respondences between two images and the
+stage of the pipeline we have feature correspondences between two images and the
 first camera pose. Now we have enough
 information to calculate our first guess for
 the second camera pose. Essentially, finding
 poses means finding a (extrinsic) matrix that
 change a set of points to a different base in
-3D space. The matrix that describes this re-
-lation between a pair of correspondences is
+3D space. The matrix that describes this relation between a pair of correspondences is
 the essential matrix. For all our <a href="https://www.codecogs.com/eqnedit.php?latex=$x$-$x^'$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$x$-$x^'$" title="$x$-$x^'$" /></a> feature
 pairs in homogeneous coordinates holds <a href="https://www.codecogs.com/eqnedit.php?latex=$x'&space;F&space;x&space;=&space;0$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$x'&space;F&space;x&space;=&space;0$" title="$x' F x = 0$" /></a>. There are different n-point algorithms;
-where the n corresponds to the feature correspondences we give the algorithm which esti-
-mates the essential matrix. A well known one, is the 8 point algorithm which needs 8 feature
+where the n corresponds to the feature correspondences we give the algorithm which estimates the essential matrix. A well known one, is the 8 point algorithm which needs 8 feature
 correspondences and gives us an estimate of the essential matrix. From the essential matrix
 we can extract the second pose.
 According to Harley and Zisserman [1],’For a given essential matrix <a href="https://www.codecogs.com/eqnedit.php?latex=$E&space;=&space;U&space;diag(1,1,0)&space;V^T$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$E&space;=&space;U&space;diag(1,1,0)&space;V^T$" title="$E = U diag(1,1,0) V^T$" /></a>,
@@ -149,10 +139,8 @@ one 3D point in the world space. This 3D
 point is the physical location both camera’s
 captured, but just from a different pose.
 With triangulation we acquire the 3D world
-point by using the 2D-2D feature correspon-
-dences. Theoretically, this should be the
-physical point in the real world we mea-
-sured. Thus this should be the last step of
+point by using the 2D-2D feature correspondences. Theoretically, this should be the
+physical point in the real world we measured. Thus this should be the last step of
 our pipeline. However, in practice we rarely have that the assumptions in theory hold 100%.
 For instance: our sensors performance might deviate resulting into noise measurements. If
 we ignore this practical reality, then we accumulate small errors over time which become
@@ -184,10 +172,8 @@ The rest of the document is about the BAD SLAM paper [2].
 
 ### 3.1 Surfel
 
-We have to choose a geometric primitive which we use to build our 3D map. In this pa-
-per they have chosen for surfel (3D disc) representation. The surfel does not have the
-connected property like the well known polygon made by triangles (faces) and their corre-
-sponding vertices. This is beneficial in terms of processing speed for creating the 3D map
+We have to choose a geometric primitive which we use to build our 3D map. In this paper they have chosen for surfel (3D disc) representation. The surfel does not have the
+connected property like the well known polygon made by triangles (faces) and their corresponding vertices. This is beneficial in terms of processing speed for creating the 3D map
 of thousands of geometric primitives. For a surfel we need to store the following attributes
 
 ![alt text](https://github.com/BigSorry/Blogs/blob/master/images/surfel.png)
@@ -199,8 +185,7 @@ of thousands of geometric primitives. For a surfel we need to store the followin
 
 The 3D center point and radius enables us
 to know where to draw this surfel in the 3D
-world. The 3D normal is mainly used for op-
-timization purposes which we will see in the
+world. The 3D normal is mainly used for optimization purposes which we will see in the
 geometric residual section 4.1. The scalar
 visual descriptor is used for the photometric
 error.
@@ -308,8 +293,7 @@ deals with solving the geometric/photometric and keyframes parameters respective
 The keyframes are first partitioned in 4x4 pixel grids; these grids are used for surfel creation,
 if there isn’t a single pixel within the grid which correspond to a surfel, then they randomly
 chose one depth measurement within the grid to create a new surfel.
-In this step there is also a filtering pixel step. it is based on a corresponding measure-
-ments count and an occlusion count. Where a good pixel should have a high corresponding
+In this step there is also a filtering pixel step. it is based on a corresponding measurements count and an occlusion count. Where a good pixel should have a high corresponding
 measurement count and a low occlusion count.
 
 ### 5.2 Surfel Normal
@@ -330,10 +314,8 @@ Normally, BA optimizes all parameters in one go.
 
 ### 5.4 Keyframe Pose
 
-The pose defined by rotation and translation (rigid body motion), also called extrinsic ma-
-trix of a keyframe/camera. Can be compactly parametrized by a 6D vector and there is a
-transformation to go back from the 6D vector to the matrix it represents also called expo-
-nential mapping (fact from Lie Algebra). This vector is optimized by the BA with GN for
+The pose defined by rotation and translation (rigid body motion), also called extrinsic matrix of a keyframe/camera. Can be compactly parametrized by a 6D vector and there is a
+transformation to go back from the 6D vector to the matrix it represents also called exponential mapping (fact from Lie Algebra). This vector is optimized by the BA with GN for
 each keyframe, and by the alternating approach we now fix the parameters for the surfels
 properties in the BA scheme.
 
@@ -395,7 +377,7 @@ side and if your reading speed is fast enough then the artifacts are hard to not
 ![alt text](https://github.com/BigSorry/Blogs/blob/master/images/bench_2.png)
 
 In this method, BAD SLAM is the best approach and even outperforms ORB-SLAM2. While
-this definitely is impressive for a direct-method; their method is fine tuned for this dataset
+this definitely is impressive for a direct method; their method is fine tuned for this dataset
 and the authors do not explain how they fine tuned the other methods for this dataset.
 Good performance in one dataset is not enough for generalization, thus testing it on different
 datasets with different hardware characteristics will really give us insights how good this
