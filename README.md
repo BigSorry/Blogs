@@ -120,16 +120,16 @@ poses means finding a (extrinsic) matrix that
 change a set of points to a different base in
 3D space. The matrix that describes this re-
 lation between a pair of correspondences is
-the essential matrix. For all our x-x′ feature
+the essential matrix. For all our <a href="https://www.codecogs.com/eqnedit.php?latex=$x$-$x^'$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$x$-$x^'$" title="$x$-$x^'$" /></a> feature
 pairs in homogeneous coordinates holds x′Fx= 0. There are different n-point algorithms;
 where the n corresponds to the feature correspondences we give the algorithm which esti-
 mates the essential matrix. A well known one, is the 8 point algorithm which needs 8 feature
 correspondences and gives us an estimate of the essential matrix. From the essential matrix
 we can extract the second pose.
-According to Harley and Zisserman [1],’For a given essential matrixE=Udiag(1, 1 ,0)VT,
-and the first camera matrixP= [I|0], there are four possible choices for the second camera
+According to Harley and Zisserman [1],’For a given essential matrix <a href="https://www.codecogs.com/eqnedit.php?latex=$E&space;=&space;U&space;diag(1,1,0)&space;V^T$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$E&space;=&space;U&space;diag(1,1,0)&space;V^T$" title="$E = U diag(1,1,0) V^T$" /></a>,
+and the first camera matrix <a href="https://www.codecogs.com/eqnedit.php?latex=$P&space;=&space;[I|0]$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$P&space;=&space;[I|0]$" title="$P = [I|0]$" /></a>, there are four possible choices for the second camera
 matrix P’, namely
-P′= [UWVT|+u3]or[UWVT|−u3]or[UWTVT|+u3]or[UWTVT|−u3]
+<a href="https://www.codecogs.com/eqnedit.php?latex=$P'&space;=&space;[UWV^T|&plus;u3]$\quad&space;or\quad$[UWV^T|-u3]$&space;\quad&space;or\quad&space;$[UW^TV^T|&plus;u3]$&space;\quad&space;or\quad&space;$[UW^TV^T|-u3]$" target="_blank"><img src="https://latex.codecogs.com/gif.latex?$P'&space;=&space;[UWV^T|&plus;u3]$\quad&space;or\quad$[UWV^T|-u3]$&space;\quad&space;or\quad&space;$[UW^TV^T|&plus;u3]$&space;\quad&space;or\quad&space;$[UW^TV^T|-u3]$" title="$P' = [UWV^T|+u3]$\quad or\quad$[UWV^T|-u3]$ \quad or\quad $[UW^TV^T|+u3]$ \quad or\quad $[UW^TV^T|-u3]$" /></a>
 Here P is also assumed to be the identity pose just liked we did for our very first camera,
 but the notation is in a homogeneous coordinate system. Here the authors refer to the SVD
 composition of the matrix and u3 is the homogenous translation vector.
