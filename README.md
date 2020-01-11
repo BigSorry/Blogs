@@ -137,6 +137,7 @@ why we set only the first one to identity.
 ![alt text](https://github.com/BigSorry/Blogs/blob/master/images/triangulation.png)
 Figure 4: Triangulation
 
+
 At this stage, we can assume that we have
 two camera extrinsic matrices with their
 corresponding feature correspondences. For
@@ -184,6 +185,7 @@ of thousands of geometric primitives. For a surfel we need to store the followin
 
 ![alt text](https://github.com/BigSorry/Blogs/blob/master/images/surfel.png)
 Figure 5: Surfel
+
 
 - 3D center point P
 - 3D normal vector n
@@ -296,6 +298,7 @@ deals with solving the geometric/photometric and keyframes parameters respective
 ![alt text](https://github.com/BigSorry/Blogs/blob/master/images/optimization.png)
 Figure 6: Direct alternated BA Optimization
 
+
 ### 5.1 Surfel Creation
 
 The keyframes are first partitioned in 4x4 pixel grids; these grids are used for surfel creation,
@@ -337,6 +340,7 @@ SLAM2 **[4]**. While the other methods lean more to the direct approach.
 
 ![alt text](https://github.com/BigSorry/Blogs/blob/master/images/bench_1.png)
 Figure 7: TUM Benchmark Results
+
 
 The TUM RGB-D benchmark contains multiple datasets for testing the accuracy of the
 SLAM pipeline. The BAD-SLAM approach reaches the second average rank once they also
@@ -386,6 +390,7 @@ side and if your reading speed is fast enough then the artifacts are hard to not
 
 ![alt text](https://github.com/BigSorry/Blogs/blob/master/images/bench_2.png)
 Figure 8: Own Benchmark Results
+
 
 In this method, BAD SLAM is the best approach and even outperforms ORB-SLAM2. While
 this definitely is impressive for a direct method; their method is fine tuned for this dataset
