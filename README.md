@@ -1,9 +1,9 @@
 
 ---
-author: Lex Meulenkamp
-id: 03727413 
-title: BAD SLAM
-subject: 3D CV and DL
+***author: Lex Meulenkamp*.
+***id: 03727413 *.
+***title: BAD SLAM*.
+***subject: 3D CV and DL*.
 ---
 
 - 1 Intro SLAM Contents
